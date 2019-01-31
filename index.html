@@ -1,3 +1,4 @@
+<link href="images/favicon.ico" rel="icon" type="image/ico" />
 
 <!doctype html>
 <html>
@@ -201,7 +202,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +213,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,19 +223,22 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#what-can-you-do-with-the-unmetric-rest-api" class="toc-h1 toc-link" data-title="What Can You Do With The Unmetric REST API?">What Can You Do With The Unmetric REST API?</a>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#brands" class="toc-h1 toc-link" data-title="Brands">Brands</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#brand-list" class="toc-h2 toc-link" data-title="Brand List">Brand List</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#search-brands" class="toc-h2 toc-link" data-title="Search Brands">Search Brands</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#dashboard-brands-list" class="toc-h2 toc-link" data-title="Dashboard brands list">Dashboard brands list</a>
                   </li>
               </ul>
           </li>
@@ -254,133 +255,216 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>The Unmetric API is an easy way to query information about a brand&#39;s social media pages, accounts, metrics and related data. The API gives you the flexibility to feed Unmetric competitive intelligence into your in-house proprietary tools, native social media dashboards, command room screens and more.</p>
 
 <p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='what-can-you-do-with-the-unmetric-rest-api'>What Can You Do With The Unmetric REST API?</h1>
+<p>With the Unmetric API, you can:</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<ul>
+<li>Gain a broad overview of a brand&#39;s social media activity </li>
+<li>Trace fan and follower growth over time</li>
+<li>Delve deep into page and account social media performance by day</li>
+<li>Explore content published by the brand and related attributes</li>
+<li>Compare multiple brand profiles across metrics over time</li>
+<li>Get Daily Alerts on interesting brand social activity</li>
+</ul>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Unmetric uses API keys to allow access to the API. You can request for a new unmetric API key from your account manager.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>unmetric API expects for the API key to be included in all API requests to the server in a request parameter that looks like the following:</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>{uri}?accesstoken=UNMETRICAPIKEY&amp;additional_parameters</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>UNMETRICAPIKEY</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h1 id='brands'>Brands</h1><h2 id='brand-list'>Brand List</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.unmetric.com/v2/api/brands?accesstoken=DA2B05835F41460392457B68757C2771&amp;startdate=2015-08-01&amp;enddate=2015-08-02&amp;network=FB,TWT"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-02"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"from_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"to_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-02"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brands"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FB"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"193619204022951"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rupeezone.in"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"geography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banking &amp; Finance"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/RupeeZone"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"226936710654536"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Imperial Optical Jamaica"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"geography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jamaica"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pharma &amp; Health"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/Imperialopticaljamaica"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"TWT"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ppdcro"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PPD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"geography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pharma &amp; Health"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/ppdcro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"covance"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covance"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"geography"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pharma &amp; Health"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/covance"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"paging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.unmetric.com/v2/api/brands?accesstoken=UNMETRICAPIKEY&amp;startdate=2014-09-30&amp;enddate=2014-12-02&amp;fromdate=2014-10-01&amp;todate=2014-10-31"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves all brands added to unmetric&#39;s dashboard between the given time period.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://api.unmetric.com/v2/api/brands</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>The date from which list of new brands are requested.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>The date till which data is requested.</td>
+</tr>
+<tr>
+<td>network</td>
+<td>A comma separated list of networks for which the list of brands is requested. The allowed values are FB, TWT, YT, PT, INS</td>
+</tr>
+</tbody></table>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="warning">
+Note — start_date cannot be smaller than 2012-01-01 
+</aside>
+<h3 id='response-details'>Response Details</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Describtion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>This identifies the brand in its network and has one of the following values:  Facebook page id for <strong><em>Facebook</em></strong> network.  Twitter screen name for <strong><em>Twitter</em></strong> network. Instagram account name for <strong><em>Instagram</em></strong> network. Pinterest user name for <strong><em>Pinterest</em></strong> network. Youtube channel id for <strong><em>Youtube</em></strong> network.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the Brand</td>
+</tr>
+<tr>
+<td>url</td>
+<td>The url of the profile for the network (eg Facebook page url for Facebook brand)</td>
+</tr>
+<tr>
+<td>geography</td>
+<td>The region of the Brand</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>The industry of the Brand</td>
+</tr>
+<tr>
+<td>date_added</td>
+<td>The date the Brand was added to the Unmetric database</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>the start_date passed in request</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>The end_date passed in request</td>
+</tr>
+<tr>
+<td>brands</td>
+<td>The list brands for each network</td>
+</tr>
+</tbody></table>
+<h2 id='search-brands'>Search Brands</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.unmetric.com/v2/api/brands/search?accesstoken=DA2B05835F41460392457B68757C2771&amp;network=fb,twt&amp;name=bmw"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"search_name"</span><span class="p">:</span><span class="s2">"bmw"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"brands"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"FB"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"309506851302"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"BMW USA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"geography"</span><span class="p">:</span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"industry"</span><span class="p">:</span><span class="s2">"Automotive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://www.facebook.com/BMWUSA/"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"407584185042"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"BMW UK"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"geography"</span><span class="p">:</span><span class="s2">"United Kingdom"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"industry"</span><span class="p">:</span><span class="s2">"Automotive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://www.facebook.com/bmwuk/"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"TWT"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"BMWMotorsport"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"BMW Motorsport"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"geography"</span><span class="p">:</span><span class="s2">"Germany"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"industry"</span><span class="p">:</span><span class="s2">"Automotive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="s2">"2012-01-12"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://twitter.com/BMWMotorsport"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"bmwmotorradesp"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"BMW Motorrad Espa</span><span class="se">\u</span><span class="s2">00F1a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"geography"</span><span class="p">:</span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"industry"</span><span class="p">:</span><span class="s2">"CUSTOM"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="s2">"2016-06-28"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://twitter.com/bmwmotorradesp"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves list of all brands with the given name.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET http://api.unmetric.com/v2/api/brands/search?accesstoken={accesstoken}&amp;network={network}&amp;name={brand_name}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -389,37 +473,116 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>network</td>
+<td>A comma separated list of networks for which the list of brands is requested. The allowed values are FB, TWT, YT, PT, INS</td>
+</tr>
+<tr>
+<td>name</td>
+<td>name of the brand</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h3 id='response-details-2'>Response Details</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Describtion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>This identifies the brand in its network and has one of the following values:  Facebook page id for <strong><em>Facebook</em></strong> network.  Twitter screen name for <strong><em>Twitter</em></strong> network. Instagram account name for <strong><em>Instagram</em></strong> network. Pinterest user name for <strong><em>Pinterest</em></strong> network. Youtube channel id for <strong><em>Youtube</em></strong> network.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the Brand</td>
+</tr>
+<tr>
+<td>url</td>
+<td>The url of the profile for the network (eg Facebook page url for Facebook brand)</td>
+</tr>
+<tr>
+<td>geography</td>
+<td>The region of the Brand</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>The industry of the Brand</td>
+</tr>
+<tr>
+<td>date_added</td>
+<td>The date the Brand was added to the Unmetric database</td>
+</tr>
+<tr>
+<td>brands</td>
+<td>The list brands for each network</td>
+</tr>
+</tbody></table>
+<h2 id='dashboard-brands-list'>Dashboard brands list</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.unmetric.com/v2/api/brands/dashboard?accesstoken=MYACCESSTOKEN&amp;network=FB,TWT"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+  </span><span class="s2">"groups"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"15369"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GROUP2-Bank"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brands"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"FB"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"7724542745"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Manchester United"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"geography"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"United Kingdom"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"industry"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"data_available_from"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-02-09"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/manchesterunited/"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"230436000410837"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Ford Argentina"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"geography"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Argentina"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"industry"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Automotive"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"data_available_from"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-26"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/fordargentina/"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"194737780569479"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Manchester United Arab Fans"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"geography"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle East"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"industry"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Sports"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"data_available_from"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-13"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/arabic.manutd/"</span><span class="w">
+        </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"15368"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GROUP3-Food"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brands"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"FB"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"21785951839"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"9GAG"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"geography"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"industry"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Entertainment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"data_available_from"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/9gag/"</span><span class="w">
+        </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"15367"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GROUP1-Aviation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brands"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"TWT"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"UHouston"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"UniversityofHouston"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"geography"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"industry"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Education"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"data_available_from"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-06"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/UHouston"</span><span class="w">
+        </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
+<p>This endpoint returns all the groups with brands that the user created in unmetric analyze app.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET http://api.unmetric.com/v2/api/brands/dashboard?accesstoken={accesstoken}&amp;network={network}</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -428,8 +591,48 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>network</td>
+<td>A comma separated list of networks for which the list of brands is requested. The allowed values are FB, TWT, YT, PT, INS</td>
+</tr>
+</tbody></table>
+<h3 id='response-details-3'>Response Details</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Describtion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>This identifies the brand in its network and has one of the following values:  Facebook page id for <strong><em>Facebook</em></strong> network.  Twitter screen name for <strong><em>Twitter</em></strong> network. Instagram account name for <strong><em>Instagram</em></strong> network. Pinterest user name for <strong><em>Pinterest</em></strong> network. Youtube channel id for <strong><em>Youtube</em></strong> network.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the Brand</td>
+</tr>
+<tr>
+<td>url</td>
+<td>The url of the profile for the network (eg Facebook page url for Facebook brand)</td>
+</tr>
+<tr>
+<td>geography</td>
+<td>The region of the Brand</td>
+</tr>
+<tr>
+<td>industry</td>
+<td>The industry of the Brand</td>
+</tr>
+<tr>
+<td>date_added</td>
+<td>The date the Brand was added to the Unmetric database</td>
+</tr>
+<tr>
+<td>group_name</td>
+<td>Specifies the group name if the user saved that brand in a group. Group Id will be specified at the top of it</td>
+</tr>
+<tr>
+<td>brands</td>
+<td>The list brands for each network</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -495,9 +698,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
